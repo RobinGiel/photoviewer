@@ -22,7 +22,7 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
-import com.squareup.picasso.OkHttp3Downloader;
+import com.squareup.picasso.UrlConnectionDownloader;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -339,7 +339,7 @@ public class PhotoActivity extends Activity {
     private Picasso getImageLoader(Context ctx) {
         Picasso.Builder builder = new Picasso.Builder(ctx);
 
-        builder.downloader(new OkHttp3Downloader(ctx) {
+        builder.downloader(new UrlConnectionDownloader(ctx) {
             @Override
             protected HttpURLConnection openConnection(Uri uri) throws IOException {
                 HttpURLConnection connection = super.openConnection(uri);
